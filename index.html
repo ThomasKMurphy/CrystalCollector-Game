@@ -4,21 +4,20 @@
 <head>
     <meta charset='UTF-8'>
     <title>CrystalCollector</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
-    <!-- <script rel="stylesheet" type="text/javascript" href="assets/javascript/game.js"></script> -->
 </head>
 
 <body>
-    <div class="row" id="title">
-        <div class="col-lg-6" style="background-color: lavender">
+    <div class="row">
+        <div class="col-lg-6" id="title" style="background-color: lavender">
             <h1>Crystal Collector!</h1>
         </div>
     </div>
-    <div class="row" id="instructions">
-        <div class="col-lg-6" style="background-color: lightblue">
+    <div class="row">
+        <div class="col-lg-6" id="instructions" style="background-color: lightblue">
             <p>You will be given a random number at the start of the game.</p>
             <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
             <p>You will the game by matching your total score to random number, you lose the game if your total score goes above random number.</p>
@@ -27,42 +26,42 @@
         </div>
     </div>
     </div>
-    <div class="row" id="startnumber">
-        <div class="col-lg-4" style="background-color: lavender">
-            <p>Target Number: "0"</p>
+    <div class="row">
+        <div class="col-lg-4" id="targetnumber" style="background-color: lavender">
+            <p>Target Number: <span id="startnumber"></span></p>
         </div>
     </div>
-    <div class="row" id="score">
-        <div class="col-lg-4" style="background-color: lightblue">
-            <p>Wins: </p>
-            <p>Losses: </p>
+    <div class="row">
+        <div class="col-lg-4" id="score" style="background-color: lightblue">
+            <p>Wins: <span id="wins"></span></p>
+            <p>Losses: <span id="losses"></span></p>
         </div>
     </div>
     <div class="row" id="crystals">
         <div class="col-lg-1" style="background-color: green">
-            <button id="crystal-button" class="btn btn-primary btn-lg">
+            <button id="crystal-button1" class="btn btn-primary btn-lg">
                 <p>1</p>
             </button>
         </div>
         <div class="col-lg-1" style="background-color: red">
-            <button id="crystal-button" class="btn btn-primary btn-lg">
+            <button id="crystal-button2" class="btn btn-primary btn-lg">
                 <p>2</p>
             </button>
         </div>
         <div class="col-lg-1" style="background-color: yellow">
-            <button id="crystal-button" class="btn btn-primary btn-lg">
+            <button id="crystal-button3" class="btn btn-primary btn-lg">
                 <p>3</p>
             </button>
         </div>
         <div class="col-lg-1" style="background-color: blue">
-            <button id="crystal-button" class="btn btn-primary btn-lg">
+            <button id="crystal-button4" class="btn btn-primary btn-lg">
                 <p>4</p>
             </button>
         </div>
     </div>
-    <div class="row" id="count">
-        <div class="col-lg-4" style="background-color: lavender">
-            <p>Your total score is: </p>
+    <div class="row">
+        <div class="col-lg-4" id="totalscore" style="background-color: lavender">
+            <p>Your total score is: <span id="count"></span></p>
         </div>
     </div>
     <script type="text/javascript">
@@ -75,13 +74,40 @@
 
         });
 
-    // each 'diamond button' will produce a random number for itself between 1-12 at start of each game.
+    // each 'crystal button' will produce a random number for itself between 1-12 at start of each game.
     // this random number between 1-12 will change at the start of each game.
     // after each 'click' the value of the diamond will appear in the scorebox. 
-    // Each time the player 'clicks' a diamond the value will be added to the previous number and the sum will be calculated in the scorebox.
+
+
+    // need to change this jQuery so that the assigned "crystal number" stays the same value for the entirety of the game
+    // Each time the player 'clicks' a crystal the value will be added to the previous number and the sum will be calculated in the scorebox.
 
     $(document).ready(function() {
-        $("#crystal-button").on("click", function() {
+        $("#crystal-button1").on("click", function() {
+            var random = Math.floor(Math.random() * 12) + 1;
+            $("#count").html(random);
+
+        });
+    });
+
+    $(document).ready(function() {
+        $("#crystal-button2").on("click", function() {
+            var random = Math.floor(Math.random() * 12) + 1;
+            $("#count").html(random);
+
+        });
+    });
+
+    $(document).ready(function() {
+        $("#crystal-button3").on("click", function() {
+            var random = Math.floor(Math.random() * 12) + 1;
+            $("#count").html(random);
+
+        });
+    });
+
+    $(document).ready(function() {
+        $("#crystal-button4").on("click", function() {
             var random = Math.floor(Math.random() * 12) + 1;
             $("#count").html(random);
 
